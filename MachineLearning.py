@@ -1,4 +1,4 @@
-# Imports
+# -----Imports-----
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -6,7 +6,10 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import VotingClassifier
+from sklearn.metrics import confusion_matrix, classification_report
 
+# -----Algorithms-----
 def support_vector_classifier(X_train, X_test, y_train, y_test):
     """Build a machine learning model using support vector machine algorithm
     """  
@@ -90,3 +93,23 @@ def gradient_boost_classifier(X_train, X_test, y_train, y_test):
     gd_acc = gd_clf.score(X_test.values, y_test)
 
     return gd_clf, gd_acc
+
+def voting_classifier(X_train, X_test, y_train, y_test, svm_clf, rnd_clf, k_clf, lda_clf, dec_clf, ada_clf, gd_clf):
+    """Build a machine learning model combining all above machine learning models
+    """  
+    # Build model  
+    voting_clf = VotingClassifier([
+        ("svm_clf", svm_clf),
+        ("rnd_clf", rnd_clf),
+        ("k_clf", k_clf),
+        ("lda_clf", lda_clf),
+        ("dec_clf", dec_clf),
+        ("ada_clf", ada_clf),
+        ("gd_clf", gd_clf)
+    ])
+    voting_clf.fit(X_train.values, y_train)
+
+    # Accuracy
+    voting_acc = voting_clf.score(X_test.values, y_test)
+
+    return voting_clf, voting_acc

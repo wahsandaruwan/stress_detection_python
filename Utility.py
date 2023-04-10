@@ -1,3 +1,7 @@
+# -----Imports-----
+from sklearn.model_selection import train_test_split
+
+# -----Utilities-----
 def min_max_feature_scaling(data):
     """Re-scale the range of features to scale the range in [0, 1]
     """
@@ -16,7 +20,7 @@ def min_max_feature_scaling(data):
     
     return data_min_max_scaled
 
-def split_datasets(data_min_max_scaled):
+def split_datasets(data_min_max_scaled, data):
     """Split the initial dataset into training and testing datasets
     """
     # Seperate dataset for inputs and outputs
