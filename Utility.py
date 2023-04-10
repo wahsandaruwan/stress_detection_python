@@ -1,5 +1,5 @@
 def min_max_feature_scaling(data):
-    """Re-scales the range of features to scale the range in [0, 1]
+    """Re-scale the range of features to scale the range in [0, 1]
     """
     # Min and max values for columns
     hr_mean_min_pre_norm = 50.777210
