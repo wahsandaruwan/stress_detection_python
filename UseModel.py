@@ -1,6 +1,8 @@
 # -----Imports-----
 import pickle as pk
 
+from PreProcess import *
+
 # -----Prediction generation algorithm-----
 def generate_prediction(hr_mean_raw, hr_std_raw):
     """Generate state of the body based on the heart rate mean and standard deviation
@@ -29,9 +31,8 @@ def generate_prediction(hr_mean_raw, hr_std_raw):
     return result
 
 # Get user input
-hr_mean_raw = input("Enter heart rate mean : ")
-hr_std_raw = input("Enter heart rate standard deviation : ")
-
+hr_mean_raw, hr_std_raw = process_hrv_data("./Data/hrv_data2.txt")
+ 
 # Generate prediction
 result = generate_prediction(float(hr_mean_raw), float(hr_std_raw))
 
