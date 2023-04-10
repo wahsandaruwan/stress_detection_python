@@ -54,3 +54,39 @@ def linear_discriminant_analyzer(X_train, X_test, y_train, y_test):
     lda_acc = lda_clf.score(X_test.values, y_test)
 
     return lda_clf, lda_acc
+
+def decision_tree_classifier(X_train, X_test, y_train, y_test):
+    """Build a machine learning model using decision tree algorithm
+    """  
+    # Build model  
+    dec_clf = DecisionTreeClassifier()
+    dec_clf.fit(X_train.values, y_train)
+
+    # Accuracy
+    dec_acc = dec_clf.score(X_test.values, y_test)
+
+    return dec_clf, dec_acc
+
+def ada_boost_classifier(X_train, X_test, y_train, y_test):
+    """Build a machine learning model using ada boost algorithm
+    """  
+    # Build model  
+    ada_clf = AdaBoostClassifier(n_estimators=20, learning_rate=1)
+    ada_clf.fit(X_train.values, y_train)
+
+    # Accuracy
+    ada_acc = ada_clf.score(X_test.values, y_test)
+
+    return ada_clf, ada_acc
+
+def gradient_boost_classifier(X_train, X_test, y_train, y_test):
+    """Build a machine learning model using gradient boost algorithm
+    """  
+    # Build model  
+    gd_clf = GradientBoostingClassifier(n_estimators=20, learning_rate=1)
+    gd_clf.fit(X_train.values, y_train)
+
+    # Accuracy
+    gd_acc = gd_clf.score(X_test.values, y_test)
+
+    return gd_clf, gd_acc
