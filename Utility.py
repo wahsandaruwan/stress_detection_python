@@ -1,17 +1,10 @@
 # -----Imports-----
 from sklearn.model_selection import train_test_split
 
-# -----Utilities-----
+# -----Utility algorithms-----
 def min_max_feature_scaling(data):
     """Re-scale the range of features to scale the range in [0, 1]
     """
-    # Min and max values for columns
-    hr_mean_min_pre_norm = 50.777210
-    hr_mean_max_pre_norm = 140.080622
-
-    hr_std_min_pre_norm = 3.636572
-    hr_std_max_pre_norm = 27.947662   
-
     # Min-max feature scaling
     # z = (x - min)/(max - min)
     data_min_max_scaled = data.drop(["index","subject","label"],axis=1)

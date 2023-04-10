@@ -9,7 +9,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import VotingClassifier
 from sklearn.metrics import confusion_matrix, classification_report
 
-# -----Algorithms-----
+# -----Machine learning algorithms-----
 def support_vector_classifier(X_train, X_test, y_train, y_test):
     """Build a machine learning model using support vector machine algorithm
     """  
