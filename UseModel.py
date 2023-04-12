@@ -28,12 +28,10 @@ def generate_prediction(hr_mean_raw, hr_std_raw):
     # Generate prediction
     result = loaded_model.predict(final_input)
     
-    return result
+    return str(result[0])
 
-# Get user input
-hr_mean_raw, hr_std_raw = process_hrv_data("./Data/hrv_data2.txt")
+# # Get user input
+# hr_mean_raw, hr_std_raw = process_hrv_data("./Data/hrv_data2.txt")
  
 # Generate prediction
-result = generate_prediction(float(hr_mean_raw), float(hr_std_raw))
-
-print(result)
+# result = generate_prediction(float(hr_mean_raw), float(hr_std_raw))
