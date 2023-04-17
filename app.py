@@ -27,7 +27,7 @@ def read_data():
     return (data), 200
 
 # Update data
-@app.route('/data/update', methods=['POST'])
+@app.route('/data/update', methods=['GET'])
 def update_data():
     # Get data
     req_from = request.args.get("req_from")
