@@ -53,7 +53,7 @@ def update_data():
             return jsonify("Invalid parameter values for device!"), 400
     elif req_from is None and reading is None and status is not None:
         if status == "0" or status == "1":
-            prediction = "-1"
+            prediction = "4"
         else:
             return jsonify("Invalid status parameter for moibile app!"), 400
     else:
